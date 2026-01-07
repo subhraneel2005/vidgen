@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vidgen
 
-## Getting Started
+![node-version](https://img.shields.io/badge/node-%3E%3D18.17.0-brightgreen)
+![issues](https://img.shields.io/github/issues/subhraneel2005/vidgen)
+![license](https://img.shields.io/badge/license-mit-blue)
+![build](https://img.shields.io/badge/build-passing-brightgreen)
+![pnpm](https://img.shields.io/badge/package%20manager-pnpm-yellow)
 
-First, run the development server:
+## description
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+create viral tiktoks/reels/shorts easily with single prompt with subtitles all in one single browser
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+vidgen is a modern media web application built with next.js and typescript. it is made for working with audio, video, and creating custom compositions. it is modular, extendable and provides reusable components for simple and fast development.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+this application streamlines media workflows. you can generate videos, work with audio, and use advanced video rendering through integration with remotion.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## tech stack
 
-## Learn More
+- next.js
+- remotion
+- openai whisper
+- shadcn
+- tailwindcss
 
-To learn more about Next.js, take a look at the following resources:
+## features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- web-based media processing
+- reusable and consistent ui components
+- video composition and rendering tools
+- modern fast development stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## todos
 
-## Deploy on Vercel
+- [ ] install whisper-cpp locally using `@remotion/install-whisper-cpp`
+- [ ] generate captions from audio file using whisper
+- [ ] display captions using `@remotion/captions`
+  ### reference docs:
+  - https://www.remotion.dev/docs/captions/caption
+  - https://www.remotion.dev/docs/install-whisper-cpp/
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+contributions are welcome. fork the repository, make a branch for your changes, and create a pull request.
+
+## license
+
+this project uses the mit license.
+
+---
+
+<div align="center">
+  <p>Created with ❤️ by <a href="https://twitter.com/subhraneeltwt">Subhraneel</a></p>
+  <p>
+    <a href="https://github.com/subhraneel2005">GitHub</a> •
+    <a href="https://twitter.com/subhraneeltwt">X (Twitter)</a>
+  </p>
+</div>
