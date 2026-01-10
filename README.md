@@ -36,7 +36,7 @@ this application streamlines media workflows. you can generate videos, work with
 - [ ] display captions using `@remotion/captions`
   ### reference docs:
   - https://www.remotion.dev/docs/captions/caption
-  - https://www.remotion.dev/docs/install-whisper-cpp/
+  - https://www.remotion.dev/docs/install-whisper-cpp/ (done)
 
 ## contributing
 
