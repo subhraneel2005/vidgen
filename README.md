@@ -31,8 +31,8 @@ this application streamlines media workflows. you can generate videos, work with
 
 ## todos
 
-- [ ] install whisper-cpp locally using `@remotion/install-whisper-cpp`
-- [ ] generate captions from audio file using whisper
+- [ ✅ ] install whisper-cpp locally using `@remotion/install-whisper-cpp`
+- [ ✅ ] generate captions from audio file using whisper
 - [ ] display captions using `@remotion/captions`
   ### reference docs:
   - https://www.remotion.dev/docs/captions/caption
