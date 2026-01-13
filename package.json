@@ -13,6 +13,7 @@
     "@base-ui/react": "^1.0.0",
     "@hugeicons/core-free-icons": "^3.1.1",
     "@hugeicons/react": "^1.1.4",
+    "@remotion/animation-utils": "^4.0.405",
     "@remotion/captions": "4.0.403",
     "@remotion/cli": "4.0.402",
     "@remotion/google-fonts": "4.0.403",
@@ -38,6 +39,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }
