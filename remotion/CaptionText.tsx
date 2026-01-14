@@ -26,7 +26,7 @@ export default function CaptionText({
     fps,
     durationInFrames: 6,
     config: {
-      stiffness: 50,
+      damping: 200,
     },
   });
 
