@@ -29,11 +29,30 @@ this application streamlines media workflows. you can generate videos, work with
 - video composition and rendering tools
 - modern fast development stack
 
+## high level architecture for initial prototype
+  
+  ### flow 1 focuses on script generation module using ai-sdk + gemini 2.5 flash
+- https://github.com/subhraneel2005/vidgen/public/prototype-hld/flow1.png
+
+  ### flow 2 focuses on audio generation module using elevenlabs api
+- https://github.com/subhraneel2005/vidgen/public/prototype-hld/flow2.png
+
+  ### flow 3 focuses on final video compilation which includes 
+  - transcription generation using local whisper model
+  - reddit overlay generation
+  - and compiling the whole video server side from remotion and showing it on the nextjs dashboard 
+- https://github.com/subhraneel2005/vidgen/public/prototype-hld/flow3.png
+
 ## todos
 
 - [ ✅ ] install whisper-cpp locally using `@remotion/install-whisper-cpp`
 - [ ✅ ] generate captions from audio file using whisper
-- [ ] display captions using `@remotion/captions`
+- [ ✅ ] display captions using `@remotion/captions`
+- [ ✅ ] create reddit style overlay using react component and remotion
+- [ ] implement gemini-api using ai-sdk for script generation
+- [ ] implement elevenlabs-api for audio generation
+- [ ] build nextjs dashboard for storyGenerator
+
   ### reference docs:
   - https://www.remotion.dev/docs/captions/caption
   - https://www.remotion.dev/docs/install-whisper-cpp/ (done)
