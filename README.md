@@ -32,16 +32,17 @@ this application streamlines media workflows. you can generate videos, work with
 ## high level architecture for initial prototype
   
   ### flow 1 focuses on script generation module using ai-sdk + gemini 2.5 flash
-- https://github.com/subhraneel2005/vidgen/public/prototype-hld/flow1.png
-
+  ![Architecture Diagram 1](https://raw.githubusercontent.com/subhraneel2005/vidgen/main/public/prototype-hld/flow1.png)
+  
   ### flow 2 focuses on audio generation module using elevenlabs api
-- https://github.com/subhraneel2005/vidgen/public/prototype-hld/flow2.png
+  ![Architecture Diagram 2](https://raw.githubusercontent.com/subhraneel2005/vidgen/main/public/prototype-hld/flow2.png)
 
   ### flow 3 focuses on final video compilation which includes 
   - transcription generation using local whisper model
   - reddit overlay generation
-  - and compiling the whole video server side from remotion and showing it on the nextjs dashboard 
-- https://github.com/subhraneel2005/vidgen/public/prototype-hld/flow3.png
+  - and compiling the whole video server side from remotion and showing it on the nextjs dashboard
+
+  ![Architecture Diagram 3](https://raw.githubusercontent.com/subhraneel2005/vidgen/main/public/prototype-hld/flow3.png)
 
 ## todos
 
