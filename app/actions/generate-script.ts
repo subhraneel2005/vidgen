@@ -28,6 +28,6 @@ export async function generateStory(genre: z.infer<typeof genreSchema>) {
   });
 
  
-    console.log(output);
+    return output;
 
 }
