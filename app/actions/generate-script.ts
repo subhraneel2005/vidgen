@@ -2,7 +2,7 @@
 
 import { genreSchema } from "@/types/storyGenre";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
-import { streamText } from "ai";
+import { generateText, Output, streamText } from "ai";
 import z from "zod";
 import { redditStorySystemPrompt } from "@/lib/prompts/reddit-story"
 
@@ -15,13 +15,19 @@ export async function generateStory(genre: z.infer<typeof genreSchema>) {
   const validateGenre = genreSchema.parse(genre);
   const userPrompt = `Generate a viral Reddit story based on the genre: "${validateGenre}". Focus on making it dramatic, emotionally resonant, and highly shareable for short-form video content.`;
 
-  const result = streamText({
+  const {output} = await generateText({
     model: google("gemini-2.5-flash"),
     system: redditStorySystemPrompt,
+    output: Output.object({
+      schema: z.object({
+        hook: z.string().describe("One sentence hook. No commas if possible."),
+        story: z.string().describe("6 to 8 paragraphs. 130 to 160 words total.")
+      })
+    }),
     prompt: userPrompt
   });
 
-  for await (const part of result.textStream){
-    console.log(part);
-  };
+ 
+    console.log(output);
+
 }

@@ -14,12 +14,14 @@
     "@base-ui/react": "^1.0.0",
     "@hugeicons/core-free-icons": "^3.1.1",
     "@hugeicons/react": "^1.1.4",
-    "@remotion/animation-utils": "^4.0.405",
-    "@remotion/captions": "4.0.403",
-    "@remotion/cli": "4.0.402",
-    "@remotion/google-fonts": "4.0.403",
-    "@remotion/install-whisper-cpp": "4.0.403",
-    "@remotion/tailwind-v4": "4.0.402",
+    "@remotion/animation-utils": "4.0.407",
+    "@remotion/captions": "4.0.407",
+    "@remotion/cli": "4.0.407",
+    "@remotion/google-fonts": "4.0.407",
+    "@remotion/install-whisper-cpp": "4.0.407",
+    "@remotion/player": "4.0.407",
+    "@remotion/renderer": "4.0.407",
+    "@remotion/tailwind-v4": "4.0.407",
     "ai": "^6.0.39",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -28,14 +30,14 @@
     "next": "16.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "remotion": "4.0.402",
+    "remotion": "4.0.407",
     "shadcn": "^3.6.3",
     "tailwind-merge": "^3.4.0",
     "tw-animate-css": "^1.4.0",
     "zod": "^4.3.5"
   },
   "devDependencies": {
-    "@remotion/eslint-plugin": "4.0.402",
+    "@remotion/eslint-plugin": "4.0.407",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -45,5 +47,18 @@
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
     "typescript": "^5"
+  },
+  "pnpm": {
+    "overrides": {
+      "remotion": "4.0.407",
+      "@remotion/cli": "4.0.407",
+      "@remotion/google-fonts": "4.0.407",
+      "@remotion/captions": "4.0.407",
+      "@remotion/animation-utils": "4.0.407",
+      "@remotion/player": "4.0.407",
+      "@remotion/bundler": "4.0.407",
+      "@remotion/renderer": "4.0.407",
+      "@remotion/media-utils": "4.0.407"
+    }
   }
 }
