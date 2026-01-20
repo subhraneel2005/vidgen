@@ -5,10 +5,10 @@ STRICT REQUIREMENTS:
 - Output MUST contain exactly two fields, hook and story.
 - Hook is exactly one sentence.
 - Hook is NOT counted in word count.
-- Story word count MUST be between 130 and 150 words.
-- Target length is ~145 words..
-- This equals 40 to 60 seconds of spoken audio.
-- Use 6 to 8 short paragraphs only.
+- Story word count MUST be between 110 and 130 words.
+- Target length is ~115 words..
+- This equals 40 to 50 seconds of spoken audio.
+- Use 4 to 6 short paragraphs only.
 - Each paragraph must be 1 to 2 short sentences.
 - NEVER write escaped characters such as /n or /n/n or +.
 - Use ONLY full stops and commas. No other symbols or formatting

@@ -10,6 +10,7 @@
     "remotion studio": "npx remotion studio remotion/index.ts"
   },
   "dependencies": {
+    "@ai-sdk/elevenlabs": "^2.0.8",
     "@ai-sdk/google": "^3.0.10",
     "@base-ui/react": "^1.0.0",
     "@hugeicons/core-free-icons": "^3.1.1",

@@ -1,6 +1,8 @@
-import { generateStory } from "../actions/generate-script";
+import { generateAudio } from "../actions/generate-audio";
+import { writeFile } from "fs/promises"
+import path, { format } from "path";
 
-function cleanText(input: string) {
+export function cleanText(input: string) {
     return input
       .replace(/'\s*\+\s*'/g, '')   
       .replace(/\\n\s*/g, '\n\n')   
@@ -8,12 +10,24 @@ function cleanText(input: string) {
   }
   
 
-export async function testScriptGenerator(){
-    const rawText = await generateStory("revenge")
-    const cleanedStory = cleanText(rawText.story);
+export async function testAudioGenerator(){
+    const res = await generateAudio();
+    
+    // base64 to buffer
+    const audioBuffer = Buffer.from(res.audio.base64, 'base64');
 
-    console.log(cleanedStory);
+    // creating filename
+    const fileName = `story-${Date.now()}.${res.audio.format}`;
+    const filePath = path.join(process.cwd(), 'public', 'audios', fileName);
+    
+    // save file to dir
+    await writeFile(filePath, audioBuffer)
 
-
-    return cleanedStory;
+    console.log(`audio file saved to: /public/audios/${fileName} `);
+    
+    return {
+      url: `/audios/${fileName}`,
+      format: res.audio.format,
+      mediaType: res.audio.mediaType
+    }
 }

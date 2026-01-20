@@ -19,6 +19,9 @@ importers:
 
   .:
     dependencies:
+      '@ai-sdk/elevenlabs':
+        specifier: ^2.0.8
+        version: 2.0.8(zod@4.3.5)
       '@ai-sdk/google':
         specifier: ^3.0.10
         version: 3.0.10(zod@4.3.5)
@@ -127,6 +130,12 @@ importers:
         version: 5.9.3
 
 packages:
+
+  '@ai-sdk/elevenlabs@2.0.8':
+    resolution: {integrity: sha512-meWjFct7BYpNfNFvZ+ErKjbrf3ExA64qT3UQidniYJidpsW9UsTHv5jNo6xVvIqC1/vEURI5ND4k4yri+34WEA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      zod: ^3.25.76 || ^4.1.8
 
   '@ai-sdk/gateway@3.0.16':
     resolution: {integrity: sha512-OOY5CfRJiHvh/8np2vs1RQaCZ5hWv2qOeEmmeiABXK3gLQHUVnCO+1hhoLsZdHM5iElu6M407dAOfyvTsKJqcQ==}
@@ -4574,6 +4583,12 @@ packages:
     resolution: {integrity: sha512-k7Nwx6vuWx1IJ9Bjuf4Zt1PEllcwe7cls3VNzm4CQ1/hgtFUK2bRNG3rvnpPUhFjmqJKAKtjV576KnUkHocg/g==}
 
 snapshots:
+
+  '@ai-sdk/elevenlabs@2.0.8(zod@4.3.5)':
+    dependencies:
+      '@ai-sdk/provider': 3.0.4
+      '@ai-sdk/provider-utils': 4.0.8(zod@4.3.5)
+      zod: 4.3.5
 
   '@ai-sdk/gateway@3.0.16(zod@4.3.5)':
     dependencies:

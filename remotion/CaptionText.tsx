@@ -1,14 +1,11 @@
 import { TikTokPage } from "@remotion/captions";
-import React from "react";
 import {
-  AbsoluteFill,
-  Sequence,
   spring,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
 
-const HIGHLIGHT = "#39E508"; // green
+const HIGHLIGHT = "#00E676";
 
 export default function CaptionText({
   page,
@@ -43,8 +40,25 @@ export default function CaptionText({
           <span
             key={t.fromMs}
             style={{
-              color: active ? HIGHLIGHT : "white",
-              whiteSpace: "pre",
+              backgroundColor: active ? HIGHLIGHT : "transparent",
+              color: "white",
+              padding: active ? "10px 16px" : "0px",
+              borderRadius: active ? "20px" : "0px",
+              whiteSpace: "pre", 
+              display: "inline-block",
+              margin: "0 4px",
+              textShadow: active
+              ? `
+                -3px -3px 0 #000,
+                3px -3px 0 #000,
+                -3px  3px 0 #000,
+                3px  3px 0 #000,
+                -3px  0px 0 #000,
+                3px  0px 0 #000,
+                0px -3px 0 #000,
+                0px  3px 0 #000
+              `
+              : "none",
             }}
           >
             {t.text}
