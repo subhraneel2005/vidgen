@@ -37,6 +37,9 @@ importers:
       '@remotion/animation-utils':
         specifier: 4.0.407
         version: 4.0.407(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      '@remotion/bundler':
+        specifier: 4.0.407
+        version: 4.0.407(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@remotion/captions':
         specifier: 4.0.407
         version: 4.0.407

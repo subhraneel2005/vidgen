@@ -113,11 +113,47 @@ this application streamlines media workflows. you can generate videos, work with
 - [ ✅ ] implement gemini-api using ai-sdk for script generation
 - [ ✅ ] implement elevenlabs-api for audio generation
 - [ ] build the UI interface
-- [ ] bundle and render the video, server-side forn local download
+- [ ✅ ] bundle and render the video, server-side forn local download
 
-  ### reference docs:
-  - https://www.remotion.dev/docs/captions/caption (done)
-  - https://www.remotion.dev/docs/install-whisper-cpp/ (done)
+### reference docs:
+- https://www.remotion.dev/docs/captions/caption (done)
+- https://www.remotion.dev/docs/install-whisper-cpp/ (done)
+
+## important log [Jan 21, 2026]
+
+### error:
+module not found: Error: Can't resolve '[project]/node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/cjs.js [app-rsc] (ecmascript)'
+
+### what was happening
+- trying to render and bundle the final video server side
+- remotion does not support ssr rendering with tailwind v4
+- next.js bundling failed and threw the above error
+
+### solution
+use cli rendering instead of ssr
+
+`
+npx remotion render remotion/index.ts MyVideo output.mp4
+`
+- runs directly in node.js
+- bypasses next.js completely
+- bundling and rendering work without errors
+
+### technical details
+- using `@remotion/bundler` with `enableTailwind()` from `@remotion/tailwind-v4`
+- inside a next.js server action / api route:
+  - remotion attempts to bundle with webpack
+  - `enableTailwind()` injects `style-loader` and `css-loader`
+- next.js already has its own bundling system (turbopack / webpack)
+- overriding webpack config inside a server action is not supported
+- this causes module resolution to fail
+
+### production note
+- running cli commands in production is not ideal
+- `@remotion/lambda` solves this by:
+  - bundling and rendering on aws lambda
+  - avoiding next.js conflicts
+  - providing horizontal scalability
 
 ## contributing
 contributions are welcome. fork the repository, make a branch for your changes, and create a pull request.

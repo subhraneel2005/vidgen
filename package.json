@@ -16,6 +16,7 @@
     "@hugeicons/core-free-icons": "^3.1.1",
     "@hugeicons/react": "^1.1.4",
     "@remotion/animation-utils": "4.0.407",
+    "@remotion/bundler": "4.0.407",
     "@remotion/captions": "4.0.407",
     "@remotion/cli": "4.0.407",
     "@remotion/google-fonts": "4.0.407",
