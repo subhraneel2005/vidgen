@@ -11,7 +11,7 @@ export function cleanText(input: string) {
   
 
 export async function testAudioGenerator(){
-    const res = await generateAudio();
+    const res = await generateAudio("coincidences");
     
     // base64 to buffer
     const audioBuffer = Buffer.from(res.audio.base64, 'base64');

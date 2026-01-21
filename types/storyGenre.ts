@@ -8,3 +8,5 @@ export const genreSchema = z.enum([
     "revenge",
     "coincidences",
 ]);
+
+export type Genre = z.infer<typeof genreSchema> 

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "remotion studio": "npx remotion studio remotion/index.ts"
+    "remotion studio": "npx remotion studio remotion/index.ts",
+    "render-video": "npx remotion render remotion/index.ts MyVideo public/videos/output-$(date +%s).mp4"
   },
   "dependencies": {
     "@ai-sdk/elevenlabs": "^2.0.8",

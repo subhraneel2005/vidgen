@@ -1,6 +1,6 @@
 "use server";
 
-import { genreSchema } from "@/types/storyGenre";
+import { Genre, genreSchema } from "@/types/storyGenre";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { generateText, Output, streamText } from "ai";
 import z from "zod";
@@ -10,7 +10,7 @@ const google = createGoogleGenerativeAI({
   apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY!,
 });
 
-export async function generateStory(genre: z.infer<typeof genreSchema>) {
+export async function generateStory(genre: Genre) {
 
   const validateGenre = genreSchema.parse(genre);
   const userPrompt = `Generate a viral Reddit story based on the genre: "${validateGenre}". Focus on making it dramatic, emotionally resonant, and highly shareable for short-form video content.`;

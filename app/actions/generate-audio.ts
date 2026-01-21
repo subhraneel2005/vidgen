@@ -1,10 +1,11 @@
+import { Genre } from "@/types/storyGenre";
 import { cleanText } from "../test/actions";
 import { generateStory } from "./generate-script";
 import { createElevenLabs, elevenlabs } from '@ai-sdk/elevenlabs';
 import { experimental_generateSpeech as generateSpeech} from "ai"
 
-export async function generateAudio(){
-    const rawText = await generateStory("relationships")
+export async function generateAudio(genre: Genre){
+    const rawText = await generateStory(genre)
     const cleanedStory = cleanText(rawText.story);
 
     try {
