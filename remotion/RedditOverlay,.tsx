@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import {
   Card,
@@ -7,6 +9,7 @@ import {
 } from "../components/ui/card";
 import { Avatar, AvatarImage } from "../components/ui/avatar";
 import { Heart, Share, CheckCircle2, VerifiedIcon } from "lucide-react";
+import { useVideoStoryStore } from "../store/useVideoStoryStore";
 
 const BADGE_DATA = [
   {
@@ -32,6 +35,9 @@ const BADGE_DATA = [
 const RedditOverlay = () => {
   // Mock data for the award icons row
   const awards = Array.from({ length: 10 });
+
+  const { hook } = useVideoStoryStore();
+
 
   return (
     <Card className="max-w-full border-none shadow-lg bg-white overflow-hidden rounded-4xl">
@@ -65,8 +71,7 @@ const RedditOverlay = () => {
             {BADGE_DATA.map((badge) => (
               <div
                 key={badge.id}
-                className="flex items-center gap-1
-                 hover:bg-gray-100 p-1 rounded transition-colors cursor-help"
+                className="flex items-center gap-1 p-1 rounded cursor-help"
                 title={badge.name}
               >
                 <img
@@ -85,8 +90,7 @@ const RedditOverlay = () => {
 
       <CardContent className="px-4 py-2">
         <h1 className="text-[42px] font-extrabold leading-[1.2] text-zinc-900 tracking-tight">
-          What if God came down one day and said &ldquo;It&apos;s pronounced
-          &apos;Jod&apos; then left?
+          {hook}
         </h1>
       </CardContent>
 

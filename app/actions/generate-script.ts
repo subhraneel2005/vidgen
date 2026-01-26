@@ -2,7 +2,7 @@
 
 import { Genre, genreSchema } from "@/types/storyGenre";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
-import { generateText, Output, streamText } from "ai";
+import { generateText, Output } from "ai";
 import z from "zod";
 import { redditStorySystemPrompt } from "@/lib/prompts/reddit-story"
 

@@ -1,3 +1,6 @@
+"use client"
+
+import { useVideoStoryStore } from "@/store/useVideoStoryStore";
 import { TikTokPage } from "@remotion/captions";
 import {
   spring,
@@ -5,7 +8,7 @@ import {
   useVideoConfig,
 } from "remotion";
 
-const HIGHLIGHT = "#00E676";
+
 
 export default function CaptionText({
   page,
@@ -27,6 +30,8 @@ export default function CaptionText({
     },
   });
 
+  const { highlightColor } = useVideoStoryStore();
+
   return (
     <div
       style={{ fontFamily, fontWeight: 900, transform: `scale(${enter})` }}
@@ -40,15 +45,15 @@ export default function CaptionText({
           <span
             key={t.fromMs}
             style={{
-              backgroundColor: active ? HIGHLIGHT : "transparent",
+              backgroundColor: active ? highlightColor : "transparent",
               color: "white",
               padding: active ? "10px 16px" : "0px",
               borderRadius: active ? "20px" : "0px",
-              whiteSpace: "pre", 
+              whiteSpace: "pre",
               display: "inline-block",
               margin: "0 4px",
               textShadow: active
-              ? `
+                ? `
                 -3px -3px 0 #000,
                 3px -3px 0 #000,
                 -3px  3px 0 #000,
@@ -58,7 +63,7 @@ export default function CaptionText({
                 0px -3px 0 #000,
                 0px  3px 0 #000
               `
-              : "none",
+                : "none",
             }}
           >
             {t.text}
