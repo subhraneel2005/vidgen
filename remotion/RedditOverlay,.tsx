@@ -1,5 +1,3 @@
-"use client"
-
 import React from "react";
 import {
   Card,
@@ -8,8 +6,7 @@ import {
   CardFooter,
 } from "../components/ui/card";
 import { Avatar, AvatarImage } from "../components/ui/avatar";
-import { Heart, Share, CheckCircle2, VerifiedIcon } from "lucide-react";
-import { useVideoStoryStore } from "../store/useVideoStoryStore";
+import { Heart, Share, VerifiedIcon } from "lucide-react";
 
 const BADGE_DATA = [
   {
@@ -32,23 +29,14 @@ const BADGE_DATA = [
   },
 ];
 
-const RedditOverlay = () => {
-  // Mock data for the award icons row
-  const awards = Array.from({ length: 10 });
-
-  const { hook } = useVideoStoryStore();
-
-
+const RedditOverlay = ({ hook }: { hook: string }) => {
   return (
     <Card className="max-w-full border-none shadow-lg bg-white overflow-hidden rounded-4xl">
       <CardHeader className="flex flex-row items-start gap-3 space-y-0 p-4 pb-2">
-        {/* Reddit Subreddit Icon */}
         <div className="relative">
           <Avatar className="w-25 h-25 border-none">
             <AvatarImage
-              src={
-                "https://www.logo.wine/a/logo/Reddit/Reddit-Logomark-White-Dark-Background-Logo.wine.svg"
-              }
+              src="https://www.logo.wine/a/logo/Reddit/Reddit-Logomark-White-Dark-Background-Logo.wine.svg"
               alt="AskReddit"
               className="bg-[#FF4500] p-1.5"
             />
@@ -60,13 +48,11 @@ const RedditOverlay = () => {
             <span className="font-extrabold text-[42px] text-zinc-900">
               AskReddit
             </span>
-            {/* Blue Verification Checkmark */}
             <span className="flex size-10 items-center justify-center rounded-full bg-background">
               <VerifiedIcon className="size-full fill-blue-500 text-white" />
             </span>
           </div>
 
-          {/* Awards Row */}
           <div className="flex flex-wrap gap-4 items-center">
             {BADGE_DATA.map((badge) => (
               <div
@@ -95,13 +81,11 @@ const RedditOverlay = () => {
       </CardContent>
 
       <CardFooter className="flex justify-between items-center px-4 py-4 mt-2">
-        {/* Left Side: Vote/Heart Counter */}
         <div className="flex items-center gap-2 text-zinc-400 group cursor-pointer">
           <Heart className="w-12 h-12 stroke-[1.5px]" />
           <span className="text-xl font-medium">99+</span>
         </div>
 
-        {/* Right Side: Share Counter */}
         <div className="flex items-center gap-2 text-zinc-400 group cursor-pointer">
           <Share className="w-12 h-12 stroke-[1.5px]" />
           <span className="text-xl font-medium">99+</span>

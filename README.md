@@ -135,6 +135,11 @@ use cli rendering instead of ssr
 `
 npx remotion render remotion/index.ts MyVideo output.mp4
 `
+new
+`
+node -p "JSON.stringify({captions:require('./remotion/captions/captions-1769673372841.json')})" > props.json && \
+npx remotion render remotion/index.ts MyVideo output.mp4 --props=props.json
+`
 - runs directly in node.js
 - bypasses next.js completely
 - bundling and rendering work without errors

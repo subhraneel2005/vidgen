@@ -1,6 +1,3 @@
-"use client"
-
-import { useVideoStoryStore } from "@/store/useVideoStoryStore";
 import { TikTokPage } from "@remotion/captions";
 import {
   spring,
@@ -8,14 +5,14 @@ import {
   useVideoConfig,
 } from "remotion";
 
-
-
 export default function CaptionText({
   page,
   fontFamily,
+  highlightColor,
 }: {
   page: TikTokPage;
   fontFamily: string;
+  highlightColor: string;
 }) {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -29,8 +26,6 @@ export default function CaptionText({
       damping: 200,
     },
   });
-
-  const { highlightColor } = useVideoStoryStore();
 
   return (
     <div

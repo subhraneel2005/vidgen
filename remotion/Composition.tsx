@@ -1,12 +1,12 @@
 import {
   AbsoluteFill,
   Audio,
-  Html5Audio,
   Sequence,
   spring,
   staticFile,
   useCurrentFrame,
   useVideoConfig,
+  OffthreadVideo,
 } from "remotion";
 import { loadFont } from "@remotion/google-fonts/TikTokSans";
 import { createTikTokStyleCaptions } from "@remotion/captions";
@@ -16,16 +16,26 @@ import RedditOverlay from "./RedditOverlay,";
 
 type Props = {
   captions: Caption[];
+  audioUrl: string;
+  hook: string;
+  highlightColor: string;
+  videoUrl?: string | null;
 };
 
-export const MyComposition: React.FC<Props> = ({ captions }) => {
+// remotion/Composition.tsx
+export const MyComposition: React.FC<Props> = ({
+  captions,
+  audioUrl,
+  hook,
+  highlightColor,
+  videoUrl,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const { fontFamily } = loadFont();
 
   const OVERLAY_DURATION = 15 * fps;
 
-  // pop in animation
   const pop = spring({
     frame,
     fps,
@@ -45,8 +55,31 @@ export const MyComposition: React.FC<Props> = ({ captions }) => {
 
   return (
     <AbsoluteFill className="flex w-full h-full justify-center items-center bg-black">
-      <Html5Audio src={staticFile("/audios/audio_16k.wav")} />
+      {/* Background Video */}
+      {videoUrl && (
+        <AbsoluteFill>
+          <OffthreadVideo
+            src={staticFile(videoUrl)}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+            delayRenderTimeoutInMilliseconds={120000} // 2 minutes for Cloudinary
+            delayRenderRetries={5} // Retry 5 times
+          />
+          <AbsoluteFill
+            style={{
+              backgroundColor: 'rgba(0, 0, 0, 0.3)',
+            }}
+          />
+        </AbsoluteFill>
+      )}
 
+      {/* Audio */}
+      <Audio src={staticFile(audioUrl)} />
+
+      {/* Reddit Overlay */}
       <Sequence from={0} durationInFrames={OVERLAY_DURATION}>
         <div
           style={{
@@ -56,10 +89,11 @@ export const MyComposition: React.FC<Props> = ({ captions }) => {
           }}
           className="w-full flex justify-center items-center px-6"
         >
-          <RedditOverlay />
+          <RedditOverlay hook={hook} />
         </div>
       </Sequence>
 
+      {/* Captions */}
       {pages.map((page, i) => {
         const startFrame = Math.round((page.startMs / 1000) * fps);
 
@@ -69,7 +103,11 @@ export const MyComposition: React.FC<Props> = ({ captions }) => {
             from={startFrame}
             durationInFrames={Math.round((page.durationMs / 1000) * fps)}
           >
-            <CaptionText page={page} fontFamily={fontFamily} />
+            <CaptionText
+              page={page}
+              fontFamily={fontFamily}
+              highlightColor={highlightColor}
+            />
           </Sequence>
         );
       })}

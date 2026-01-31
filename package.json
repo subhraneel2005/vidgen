@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "remotion studio": "npx remotion studio remotion/index.ts",
-    "render-video": "npx remotion render remotion/index.ts MyVideo public/videos/output-$(date +%s).mp4"
+    "bundle-remotion": "remotion bundle remotion/index.ts --bundle-dir=public/remotion-bundle",
+    "download-whisper-model-tiny-en": "node remotion/scripts/download-whisper.mjs"
   },
   "dependencies": {
     "@ai-sdk/elevenlabs": "^2.0.8",
