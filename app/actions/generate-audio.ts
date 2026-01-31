@@ -4,6 +4,7 @@ import { elevenlabs } from '@ai-sdk/elevenlabs';
 import { experimental_generateSpeech as generateSpeech} from "ai"
 import { writeFile } from 'fs/promises';
 import path from 'path';
+import { mp3ToWav } from './mp3-16k_wav';
 
 export async function generateAudio(cleanedStory: string){
     // const rawText = await generateStory(genre)
@@ -14,7 +15,7 @@ export async function generateAudio(cleanedStory: string){
             model: elevenlabs.speech('eleven_flash_v2'),
             text: cleanedStory,
             voice: "cgSgspJ2msm6clMCkdW9",
-            outputFormat: "pcm_16000",
+            outputFormat: "mp3",
             providerOptions: {
                 elevenlabs: {
                   voiceSettings: {
@@ -27,10 +28,14 @@ export async function generateAudio(cleanedStory: string){
         })
 
         const buffer = Buffer.from(result.audio.base64, "base64");
-        const fileName = `story-${Date.now()}.${result.audio.format}`;
-        const filePath = path.join(process.cwd(), "public/audios", fileName);
+
+        const baseName = `story-${Date.now()}`;
+        const mp3Path = path.join(process.cwd(), "public/audios", `${baseName}.mp3`);
+        const wavPath = path.join(process.cwd(), "public/audios", `${baseName}_16k.wav`);
     
-        await writeFile(filePath, buffer);
+        await writeFile(mp3Path, buffer);
+
+        await mp3ToWav(mp3Path, wavPath);
 
 
         return {
@@ -39,7 +44,7 @@ export async function generateAudio(cleanedStory: string){
                 format: result.audio.format,
                 mediaType: result.audio.mediaType,
                 uint8Array: result.audio.uint8Array,
-                url: `/audios/${fileName}`
+                url: `/audios/${baseName}_16k.wav`,
             },
             metadata: result.providerMetadata
         }

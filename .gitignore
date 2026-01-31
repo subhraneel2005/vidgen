@@ -40,3 +40,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+build
+
+# Add to .gitignore
+public/video-cache/
+public/videos/
+public/audios
